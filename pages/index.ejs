@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%- siteName %></title>
+    <link rel="stylesheet" href="style.css">
+   <body>
+    <%- include("./parts/nav.ejs")%>
+      <article class="card" style="margin-top: 100px;">
+        <header><%=siteName%></header>
+        <footer>
+<% var id = id ||"";%>
+    <div class="third" style="margin: auto; ">
+    <%if (id){%>
+      <a class="button warning" href="<%=siteURL%>go?id=<%=id%>"> <blockquote>Short URL: <%-id%></blockquote></a>
+    <%}%>
+   <input id="url" class="stack" placeholder="URL" />
+   <button id="btn" class="stack success" style="text-align: center;" >Shorten</button>
+</div>
+        </footer>
+      </article>
+      
+     
+       <script>
+ const randomID = (n) => {
+    const r = 'ABCDEFGHIJKLMNPQRSTUVWXYZabcdefghjklmnopqrstuvwxyz0123456789'
+    let rastgele = ''
+    for (var i = 0; i < n + 1; i++) rastgele+= r.charAt(Math.floor(Math.random() *  r.length))
+    return rastgele;
+} 
+
+document.querySelector(".third > #btn").addEventListener('click',  () => {
+var url =  document.querySelector(".third > #url");
+  if (url.value){
+  window.location.href = `<%=siteURL%>new?id=${randomID(4)}&url=${url.value}`     
+  
+  } else {
+    alert("Please enter some URL.");
+  }
+  });
+      </script>
+    
+    </body>
+</html>
