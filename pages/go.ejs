@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%- siteName %> - <%=id%></title>
+   <link rel="stylesheet" href="style.css">
+   <body>
+    <%- include("./parts/nav.ejs")%>
+    <% var url = url || "";%>
+<article class="card" style="margin: auto; margin-top: 100px;">
+  <header>
+    <h4>Redirect... (Link ID: <%=id%>)</h4>
+  </header>
+  <footer style="margin: auto;">
+    <button id="req" class='warning' style="background-color: #FFE6AC;">10</button>
+  </footer>
+</article>
+  <script>
+  var i = 10;  
+setInterval(() =>{
+  
+  if (i === 0){
+    document.getElementById("req").style = "";
+    document.getElementById("req").innerHTML = "Go";
+    document.getElementById("req").addEventListener('click',  () => {
+    var url = `<%=url%>`;
+    url = url.includes("://") ? url : "https://"+url;
+    window.location = url;
+  });
+               } else {
+                 i--;
+document.getElementById("req").innerHTML = i;
+               }
+}, 1000)   </script>
+    </body>
+</html>
