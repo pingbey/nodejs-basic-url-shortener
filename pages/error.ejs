@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%- siteName %> - URL not found</title>
+   <link rel="stylesheet" href="/src/style.css">
+   <body>
+    <%- include("./parts/nav.ejs") %>
+<article class="card" style="margin: auto; margin-top: 100px;">
+  <header>
+    <h1>Error!</h1>
+  </header>
+  <footer>
+    <p>URL with this ID was not found.</p>
+    <a href="<%=siteURL%>"><%=siteName%> - Home Page</a>
+  </footer>
+</article>
+   </body>
+</html>
