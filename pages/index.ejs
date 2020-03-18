@@ -33,8 +33,11 @@
 document.querySelector(".third > #btn").addEventListener('click',  () => {
 var url =  document.querySelector(".third > #url");
   if (url.value){
-  window.location.href = `<%=siteURL%>new?id=${randomID(4)}&url=${url.value}`     
-  
+ if (url.value.startsWith("http")){
+    window.location.href = `<%=siteURL%>new?id=${randomID(4)}&url=${url.value}`     
+} else {
+  alert("URL is not valid.")
+}
   } else {
     alert("Please enter some URL.");
   }
